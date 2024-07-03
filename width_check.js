@@ -1,3 +1,5 @@
+// Автотест проверка ширины контентной части.
+
 import puppeteer from 'puppeteer';
 import * as chai from 'chai';
 const expect = chai.expect;
