@@ -1,4 +1,7 @@
-const puppeteer = require('puppeteer');
+import puppeteer from 'puppeteer';
+import * as chai from 'chai';
+const expect = chai.expect;
+
 
 (async () => {
   // Запуск браузера
@@ -13,13 +16,16 @@ const puppeteer = require('puppeteer');
     const element = document.querySelector('div.wrap');
     return window.getComputedStyle(element).width;
   });
-  
-  // Проверка ширины элемента
-  if (width === '1000px') {
-    console.log('Test passed: width is 1000px');
-  } else {
-    console.log(`Test failed: width is ${width}`);
+
+	// Проверка ширины через chai expect
+  try {
+	//  console.log(width);
+    chai.expect(width).to.equal('1000px');
+    console.log('Test passed: width is ' + width);
+  } catch (error) {
+    console.error(`Test failed: ${error.message}`);
   }
+
   
   // Закрытие браузера
   await browser.close();
