@@ -1,3 +1,5 @@
+// Автотест проверка ссылки "Софт для быстрого создания скриншотов"
+
 import puppeteer from 'puppeteer';
 import * as chai from 'chai';
 const expect = chai.expect;
