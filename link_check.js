@@ -1,4 +1,6 @@
-const puppeteer = require('puppeteer');
+import puppeteer from 'puppeteer';
+import * as chai from 'chai';
+const expect = chai.expect;
 
 (async () => {
   // Запуск браузера
@@ -14,12 +16,22 @@ const puppeteer = require('puppeteer');
     const element = document.querySelector(selector);
     return element ? element.getAttribute('href') : null;
   });
-  
+/*  
   // Проверка значения ссылки
   if (linkHref === 'https://getsharex.com/') {
     console.log('Test passed: link href is correct');
   } else {
     console.log(`Test failed: link href is ${linkHref}`);
+  }
+*/
+
+	// Проверка ссылки через chai expect
+  try {
+	//  console.log(width);
+    chai.expect(linkHref).to.equal('https://getsharex.com/');
+    console.log('Test passed: link href is correct' + linkHref);
+  } catch (error) {
+    console.error(`Test failed: ${error.message}`);
   }
   
   // Закрытие браузера
